@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 3001;
 
 // 🛡️ CORS (habilita solicitudes desde el frontend)
 app.use(cors({
-  origin: process.env.CLIENT_URL,
+  origin: process.env.CLIENT_URL || 'http://localhost:3000',
   credentials: true
 }));
 
@@ -38,5 +38,5 @@ app.use('/admin', adminRoutes);
 
 // ✅ Servidor funcionando
 app.listen(PORT, () => {
-  console.log(`✅ Servidor corriendo en http://localhost:${PORT}`);
+  console.log(`✅ Servidor corriendo en puerto ${PORT}`);
 });
